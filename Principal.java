@@ -6,13 +6,14 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.Persona;
 import logica.Tarea;
+import logica.ListaDeTareas;
 
 
 public class Principal extends javax.swing.JFrame {
 
 
     DefaultTableModel modelo= new DefaultTableModel();
-      private ArrayList<Tarea> listadoTareas = new ArrayList<Tarea>();
+    private ListaDeTareas listaDeTareas = ListaDeTareas.getInstancia();
             
     public Principal() {
         initComponents();
@@ -27,10 +28,7 @@ public class Principal extends javax.swing.JFrame {
         modelo.addColumn("Telefono");
         refrescarTabla();
         
-        
-        
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -202,9 +200,10 @@ public class Principal extends javax.swing.JFrame {
         tarea.setDireccion(persona.getDireccion());
         persona.setTelefono(txtTelefono.getText());
         tarea.setTelefono(persona.getTelefono());
-
+        
+        listaDeTareas.agregarTarea(tarea);
         JOptionPane.showMessageDialog(this,"Los datos se guardaron correctamente");
-        listadoTareas.add(tarea);
+        
         refrescarTabla();
         }catch (NumberFormatException e){
             
@@ -222,6 +221,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnRealizadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizadoActionPerformed
@@ -233,22 +233,19 @@ public class Principal extends javax.swing.JFrame {
             modelo.removeRow(0); //Borra todas los elementos de la tabla//
             
         }
-        
+        ArrayList<Tarea> listadoTareas = listaDeTareas.getListadoTareas();
         for (Tarea tarea : listadoTareas) {
-               
-            
-            Object t [] = new Object[5];
-            t[0]=tarea.getDescripcion();
-            t[1]=tarea.getPrioridad();
-            t[2]=tarea.getNombre();
-            t[3]=tarea.getDireccion();
-            t[4]=tarea.getTelefono();
+            Object t[] = new Object[5];
+            t[0] = tarea.getDescripcion();
+            t[1] = tarea.getPrioridad();
+            t[2] = tarea.getNombre();
+            t[3] = tarea.getDireccion();
+            t[4] = tarea.getTelefono();
             modelo.addRow(t);
-           }
-  
+        }
+
         tblTablaDeTareas.setModel(modelo);
-        
-}
+    }
     
     
     /**
