@@ -19,7 +19,7 @@ public class ListaDeTareas {
 // ListaDeTareas: Gestionar un conjunto de tareas //
 // listadoTareas: Colección de tareas //
     
-    private ListaDeTareas() {
+    public ListaDeTareas() {
         listadoTareas = new ArrayList<>();
     }
 

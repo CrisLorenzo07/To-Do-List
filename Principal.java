@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.Tarea;
 import logica.ListaDeTareas;
+import grafica.DetalleTabla;
 
 public class Principal extends javax.swing.JFrame {
 
@@ -19,9 +20,6 @@ public class Principal extends javax.swing.JFrame {
 
         modelo.addColumn("Tarea");
         modelo.addColumn("Prioridad");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Direccion");
-        modelo.addColumn("Telefono");
         modelo.addColumn("Estado");
         refrescarTabla();
 
@@ -176,7 +174,8 @@ public class Principal extends javax.swing.JFrame {
             tarea.setDescripcion(txtDescripcion.getText());
             int prioridad = Integer.parseInt((String) cboPrioridad.getSelectedItem());
             tarea.setPrioridad(prioridad);
-
+            txtDescripcion.setText("");
+            
             listaDeTareas.agregarTarea(tarea);
             JOptionPane.showMessageDialog(this, "Los datos se guardaron correctamente");
 
@@ -215,7 +214,11 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnVerDetalles1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetalles1ActionPerformed
-
+    
+    DetalleTabla d = new DetalleTabla(listaDeTareas);
+    d.setVisible(true);
+        
+        
     }//GEN-LAST:event_btnVerDetalles1ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -252,7 +255,7 @@ public class Principal extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnRealizadoActionPerformed
-
+        
     public void refrescarTabla() {
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
@@ -260,14 +263,13 @@ public class Principal extends javax.swing.JFrame {
         }
         ArrayList<Tarea> listadoTareas = listaDeTareas.getListadoTareas();
         for (Tarea tarea : listadoTareas) {
-            Object t[] = new Object[6];
+            Object t[] = new Object[3];
             t[0] = tarea.getDescripcion();
             t[1] = tarea.getPrioridad();
-            t[2] = tarea.getNombre();
-            t[3] = tarea.getDireccion();
-            t[4] = tarea.getTelefono();
-            t[5] = tarea.isRealizada() ? "Realizada" : "Pendiente";
+            t[2] = tarea.isRealizada() ? "Realizada" : "Pendiente";
             modelo.addRow(t);
+            
+            
         }
 
         tblTablaDeTareas.setModel(modelo);

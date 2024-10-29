@@ -106,7 +106,7 @@ public class EditarTarea extends javax.swing.JFrame {
                 btnCerrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 140, 40));
+        jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 140, 40));
 
         btnBorrar.setBackground(new java.awt.Color(204, 204, 204));
         btnBorrar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
@@ -116,7 +116,7 @@ public class EditarTarea extends javax.swing.JFrame {
                 btnBorrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 140, 40));
+        jPanel1.add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 140, 40));
 
         btnGuardar.setBackground(new java.awt.Color(204, 204, 204));
         btnGuardar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
@@ -126,13 +126,13 @@ public class EditarTarea extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 140, 40));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 140, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
